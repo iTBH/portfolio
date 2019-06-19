@@ -349,7 +349,17 @@ $(function () {
         }
 
         var url = $(this).attr('href');
-        $('.sidebar').load('/help?url=/dashboard/hilfe_dashboard.html');
+        
+        
+        //TODO: URL kürzen auf die letzten beiden Dashe
+        var pathComponents = url.split('/');
+
+        var abschnitt = pathComponents[pathComponents.length-2];
+        var htmlFile = pathComponents[pathComponents.length-1];
+        
+        $('.sidebar').load('/help?url=/' + abschnitt + '/' + htmlFile);
+        
+        //$('.sidebar').load('/help?url=/dashboard/hilfe_dashboard.html');
     });
 
     /* Export Buttons */
